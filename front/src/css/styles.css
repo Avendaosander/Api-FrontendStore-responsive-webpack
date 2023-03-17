@@ -740,8 +740,8 @@ footer{
 
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span{
-   color: #03c200;
-   border: 1px solid #03c200;
+   color: var(--secundarioOscuro);
+   border: 1px solid var(--secundarioOscuro);
    background: #223243;
    transform: translateX(25px) translateY(-7px);
    font-size: 10px;
@@ -756,7 +756,7 @@ footer{
 
 .inputBox input:valid,
 .inputBox input:focus{
-   border: 1px solid #03c200;
+   border: 1px solid var(--secundarioOscuro);
 }
 
 .inputBox i{
@@ -766,8 +766,8 @@ footer{
    left: 15px;
    padding: 2px 0;
    padding-right: 8px;
-   color: #06FF00;
-   border-right: 1px solid #06FF00;
+   color: var(--secundario);
+   border-right: 1px solid var(--secundario);
 }
 
 .inputBox input[type="submit"]{

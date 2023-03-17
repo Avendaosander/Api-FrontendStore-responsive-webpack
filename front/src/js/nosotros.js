@@ -1,13 +1,7 @@
 const nosotros = () => {
    const url = window.location.origin;
    const navNosotros = document.getElementById('nosotros')
-
-   const navbar = document.querySelector('.navbar')
-   const toggle = document.querySelector('.btn.btn-nav')
-
-   toggle.addEventListener('click', () => {
-      navbar.classList.toggle('open')
-   })
+   let slidePos = 1
 
    navNosotros.classList.toggle('active')
    document.addEventListener('DOMContentLoaded', async e => {
@@ -20,28 +14,22 @@ const nosotros = () => {
          .then(res => res.json())
          .then(response => {
             if (response.authLogin == false) {
-               return location.href = `${url}/front/login.html`;
+               return location.href = `${url}/login.html`;
             }
          })
-         
-      const scrollHeader = document.getElementById('scrollView');
-      scrollHeader.addEventListener('click', e => {
-         e.preventDefault();
-         const seccion = document.querySelector(scrollHeader.attributes.href.value);
-         seccion.scrollIntoView({
-            behavior: 'smooth'
-         });
-      });
+      
       // slides = document.getElementsByClassName("card-info")
       showSlides(slidePos)
+      document.getElementById('btn-left').addEventListener('click', () => {
+         showSlides(slidePos += -1)
+      })
+      document.getElementById('btn-rigth').addEventListener('click', () => {
+         showSlides(slidePos += 1)
+      })
 
    })
-   let slidePos = 1
    let slides = document.getElementsByClassName("card-info")
 
-   function slider(n) {
-      showSlides(slidePos += n)
-   }
    const showSlides = (n) => {
       let i;
       if (n > slides.length) { slidePos = 1}

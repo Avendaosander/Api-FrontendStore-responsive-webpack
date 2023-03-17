@@ -1,6 +1,6 @@
-const { glob } = require('glob')
+// const { glob } = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const path = require('path')
 
 const ruleJs = {

@@ -17,7 +17,7 @@ const crearUser = async (req, res, next) => {
    try {
       let user = await Users.findOne({ email });
       // console.log(user);
-      if (user) throw new Error('Ya existe este usuario');
+      if (user) throw new Error('Ya existe este email');
       
       user = new Users({nombre, email, password});
       // console.log(user);

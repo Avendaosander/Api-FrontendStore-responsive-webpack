@@ -2,16 +2,8 @@ const index = () => {
    const url = window.location.origin;
    const urlActual = document.URL;
    const navTienda = document.getElementById('tienda')
-   const navbar = document.querySelector('.navbar')
-   const toggle = document.querySelector('.btn.btn-nav')
    let slidePos = 1
    let slides = document.getElementsByClassName("producto")
-
-   toggle.addEventListener('click', () => {
-      navbar.classList.toggle('open')
-   })
-
-   console.log('JS desde el front');
 
    navTienda.classList.toggle('active')
    document.addEventListener('DOMContentLoaded', async e => {
@@ -26,14 +18,14 @@ const index = () => {
             // console.log(response)
             if (response.authLogin == false) {
                // console.log('No login');
-               return location.href = `${url}/front/login.html`;
+               return location.href = `${url}/login.html`;
             } else{
                const main = document.querySelector('.carrusel')
                const leftArrow = document.createRange().createContextualFragment(/*html*/
-                  `<button onclick="slider(-1)" class="btn-slide left"><i class="bi bi-chevron-left"></i></button>`
+                  `<button id="btn-left" class="btn-slide left"><i class="bi bi-chevron-left"></i></button>`
                )
                const rightArrow = document.createRange().createContextualFragment(/*html*/
-                  `<button onclick="slider(1)" class="btn-slide"><i class="bi bi-chevron-right"></i></button>`
+                  `<button id="btn-rigth" class="btn-slide"><i class="bi bi-chevron-right"></i></button>`
                )
                main.append(leftArrow);
                response.forEach(franela => {
@@ -53,23 +45,17 @@ const index = () => {
                })
                main.append(rightArrow);
                slides = document.getElementsByClassName("producto")
+               document.getElementById('btn-left').addEventListener('click', () => {
+                  showSlides(slidePos += -1)
+               })
+               document.getElementById('btn-rigth').addEventListener('click', () => {
+                  showSlides(slidePos += 1)
+               })
             }
          })
          showSlides(slidePos)
-
-         const scrollHeader = document.getElementById('scrollView');
-         scrollHeader.addEventListener('click', e => {
-            e.preventDefault();
-            const seccion = document.querySelector(scrollHeader.attributes.href.value);
-            seccion.scrollIntoView({
-               behavior: 'smooth'
-            });
-         });
    })
-
-   function slider(n) {
-      showSlides(slidePos += n)
-   }
+   
    const showSlides = (n) => {
       let i;
       if (n > slides.length) { slidePos = 1}
