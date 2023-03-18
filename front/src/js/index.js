@@ -1,6 +1,5 @@
 const index = () => {
    const url = window.location.origin;
-   const urlActual = document.URL;
    const navTienda = document.getElementById('tienda')
    let slidePos = 1
    let slides = document.getElementsByClassName("producto")

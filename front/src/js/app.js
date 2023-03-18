@@ -1,4 +1,24 @@
 import "../css/styles.css";
+import "../img/1.png";
+import "../img/2.png";
+import "../img/3.png";
+import "../img/4.png";
+import "../img/5.png";
+import "../img/6.png";
+import "../img/7.png";
+import "../img/8.png";
+import "../img/9.png";
+import "../img/10.png";
+import "../img/11.png";
+import "../img/12.png";
+import "../img/13.png";
+import "../img/14.png";
+import "../img/icono1.png";
+import "../img/icono2.png";
+import "../img/icono3.png";
+import "../img/icono4.png";
+import "../img/nosotros.jpg";
+import "../img/favicon.ico";
 console.log('JS desde webpack')
 
 const url = window.location.origin;
@@ -16,7 +36,6 @@ const navToggle = () => {
 
 const scroll = () => {
    const scrollHeader = document.getElementById('scrollView');
-   console.log('entra aqui');
    
    scrollHeader.addEventListener('click', e => {
       e.preventDefault();
@@ -31,7 +50,11 @@ import validateToken from "./validateToken.js";
 import logout from "./logout.js";
 
 import login from "./login.js";
-// if (urlActual == `${url}/front/dist/login.html`) {
+if (urlActual == `${url}/`) {
+   console.log('Entra en Raiz')
+   validateToken();
+   index();
+}
 if (urlActual == `${url}/login.html`) {
    console.log('Entra en login')
    login();

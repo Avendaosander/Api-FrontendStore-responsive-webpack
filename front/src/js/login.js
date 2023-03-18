@@ -58,7 +58,7 @@ const login = () => {
                }
                if(response.verificado == true) {
                   localStorage.setItem('token', JSON.stringify(response.token))
-                  return location.href = `${url}/index.html`;
+                  return location.href = `${url}/index.html`; //Funciona con Dev Server
                }
             })
       } catch (error) {

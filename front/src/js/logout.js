@@ -1,5 +1,4 @@
 const logout = () => {
-   console.log('Entra aqui');
    
    document.getElementById('logout').addEventListener('click', async e => {
       await fetch(`http://localhost:3000/logout`, { 

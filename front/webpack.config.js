@@ -1,6 +1,4 @@
-// const { glob } = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const path = require('path')
 
 const ruleJs = {
@@ -13,17 +11,16 @@ const ruleStyle = {
    use: ['style-loader', 'css-loader']
 }
 const ruleImg = {
-   test: /\.(png|jpg|gif|svg)$/i,
+   test: /\.(png|jpg|ico)$/,
    type: "asset/resource",
    generator: {
       filename: 'img/[name][ext]',
-   }
+   },
 }
 
 const rules = [ruleStyle, ruleJs, ruleImg]
 
 module.exports = {
-   // mode: development,
    entry: './src/js/app.js',
    output: {
       path: path.join(__dirname, '/dist'),
@@ -55,5 +52,10 @@ module.exports = {
          template: 'src/producto.html'
       }),
    ],
-   module: {rules}
+
+   module: {rules},
+
+   devServer: {
+      open: true,
+   },
 }
